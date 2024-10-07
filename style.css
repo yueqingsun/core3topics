@@ -20,6 +20,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 999;
 }
 
 .rectangle img {
@@ -41,6 +42,32 @@ body {
 /* hover 图片初始隐藏 */
 .hover-img {
     opacity: 0;
+}
+
+.rectext{
+    position: fixed; /* 固定在页面而非 .rectangle 内 */
+    width: 80vw;
+    color: white;
+    box-sizing: border-box;
+    text-align: center; 
+    opacity: 0; /* Start with opacity 0 */
+    color: rgb(255, 0, 0); /* Start with red color */
+    /* background-color: #000000; */
+    border: 3px solid red;
+    font-size: large;
+    padding: 15px;
+    transition: opacity 1s, color 0.5s, border 0.5s;/* Define the transitions */
+    transform: rotate(180deg);
+}
+
+.rectext.show {
+    opacity: 1; /* Change opacity to 1 on hover */
+    color: rgb(0, 255, 0); /* Change color to cyan on hover */
+    border: 3px solid rgb(0, 255, 0);
+}
+
+span{
+    font-style: italic;
 }
 
 /* 设置初始的 4x3 格栅位置 */
@@ -75,10 +102,11 @@ body {
     opacity: 0; /* hover时旧图片保持隐藏 */
 }
 
+
 /* hover效果 */
 .rectangle.hover-enabled:hover {
     border: 3px solid rgb(0, 255, 0);
-    background-color: blue; /* 鼠标悬停时背景变为蓝色 */
+    /* background-color: blue; */
     border-width: 4px;      /* 加粗边框 */
     transform: scale(1.1);  /* 稍微放大 */
     transition: all 0.2s ease; /* 加速动画效果 */
