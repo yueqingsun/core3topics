@@ -1,0 +1,83 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #000000;
+}
+
+.outer-circle-insight {
+    width: 46px;
+    height: 46px;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    position: fixed;
+}
+
+.outer-circle {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0);
+    border-radius: 50%;
+    position: relative;
+}
+
+.inner-circle {
+    width: 15px;
+    height: 15px;
+    border: 3px solid white;
+    border-radius: 50%;
+    position: absolute;
+    top: 23px;
+    left: 23px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.text1{
+    color: #fff;
+    position: fixed;
+    top:80px;
+    left:80px;
+    height: auto;
+    width:50vw;
+    /* transform: translate(-50%, -50%); */
+}
+
+.text2{
+    color: #fff;
+    position: fixed;
+    bottom:80px;
+    right:80px;
+    height: auto;
+    width:50vw;
+    transform: rotate(180deg);
+    /* transform: translate(-50%, -50%); */
+}
+
+.text1:hover{
+    color: red;
+}
+.text2:hover{
+    color: rgb(0, 255, 0)
+}
+
+p{
+    text-align: left;
+    opacity: 0;
+    animation: fade 8s infinite ease-in-out;
+}
+
+.textp1{
+    animation-delay: 0s;
+}
+
+.textp2{
+    animation-delay: 4s;
+}
+
+@keyframes fade {
+    0%, 100% { opacity: 0; }   /* 开始和结束时完全透明 */
+    50% { opacity: 1; }      /* 中间达到50%透明度 */
+}
