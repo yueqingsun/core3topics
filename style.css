@@ -1,0 +1,149 @@
+body {
+    margin-left: 80px;
+    margin-right: 80px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    overflow: hidden;
+    position: relative;
+}
+
+.rectangle {
+    width: calc((100vw - 160px) / 4); /* 页面宽度减去左右边距 */
+    height: calc(((100vw - 160px) / 4) * 0.75); /* 保持 4:3 比例 */
+    border: 3px solid red;
+    background-color: #000000;
+    position: absolute;
+    transition: all 1s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rectangle img {
+    width: 100%;          /* 图片的宽度与矩形相同 */
+    height: 100%;         /* 图片的高度与矩形相同 */
+    object-fit: cover;    /* 让图片按比例填充整个矩形，并裁剪多余部分 */
+    transition: opacity 0.3s ease;
+    position: absolute;   /* 确保图片与父容器对齐 */
+    top: 0;
+    left: 0;
+}
+
+
+/* 初始显示的大图片 */
+.initial-img {
+    display: block;
+}
+
+/* hover 图片初始隐藏 */
+.hover-img {
+    opacity: 0;
+}
+
+/* 设置初始的 4x3 格栅位置 */
+.rectangle:nth-child(1) { top: 0; left: 0; }
+.rectangle:nth-child(2) { top: 0; left: calc((100vw - 160px) / 4); }
+.rectangle:nth-child(3) { top: 0; left: calc((100vw - 160px) / 2); }
+.rectangle:nth-child(4) { top: 0; left: calc((100vw - 160px) * 3 / 4); }
+.rectangle:nth-child(5) { top: calc((100vw - 160px) / 4 * 0.75); left: 0; }
+.rectangle:nth-child(6) { top: calc((100vw - 160px) / 4 * 0.75); left: calc((100vw - 160px) / 4); }
+.rectangle:nth-child(7) { top: calc((100vw - 160px) / 4 * 0.75); left: calc((100vw - 160px) / 2); }
+.rectangle:nth-child(8) { top: calc((100vw - 160px) / 4 * 0.75); left: calc((100vw - 160px) * 3 / 4); }
+.rectangle:nth-child(9) { top: calc((100vw - 160px) / 2 * 0.75); left: 0; }
+.rectangle:nth-child(10) { top: calc((100vw - 160px) / 2 * 0.75); left: calc((100vw - 160px) / 4); }
+.rectangle:nth-child(11) { top: calc((100vw - 160px) / 2 * 0.75); left: calc((100vw - 160px) / 2); }
+.rectangle:nth-child(12) { top: calc((100vw - 160px) / 2 * 0.75); left: calc((100vw - 160px) * 3 / 4); }
+
+/* 缩小后初始图片消失，hover 图片保持隐藏 */
+.rectangle.shrunk .initial-img {
+    opacity: 0;
+}
+
+.rectangle.shrunk .hover-img {
+    opacity: 0;
+}
+
+/* hover效果 (初始时禁用) */
+.rectangle.hover-enabled:hover .hover-img {
+    opacity: 1; /* hover时新图片出现 */
+}
+
+.rectangle.hover-enabled:hover .initial-img {
+    opacity: 0; /* hover时旧图片保持隐藏 */
+}
+
+/* hover效果 */
+.rectangle.hover-enabled:hover {
+    border: 3px solid rgb(0, 255, 0);
+    background-color: blue; /* 鼠标悬停时背景变为蓝色 */
+    border-width: 4px;      /* 加粗边框 */
+    transform: scale(1.1);  /* 稍微放大 */
+    transition: all 0.2s ease; /* 加速动画效果 */
+}
+
+
+.iconcontainer{
+    position: fixed;
+    bottom: 40px;
+    left:40px;
+}
+
+.outer-circle-insight {
+    width: 46px;
+    height: 46px;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    position: fixed;
+}
+
+.hoverplaceholder{
+    width:170px;
+    height: 46px;
+    background-color: rgba(0, 255, 255, 0);
+}
+
+
+.contact{
+    width:46px;
+    height: 46px;
+    display: flex;
+    align-items: center; 
+    color: #fff;
+    font-size: x-large;
+    position: fixed;
+    left: 175px;    
+    opacity: 0; /* 初始透明度 */
+    transition: opacity 0.3s; /* 透明度过渡 */
+    transform: rotate(180deg);
+}
+
+.hoverplaceholder:hover .contact {
+    opacity: 1; /* 悬停时透明度 */
+}
+
+.hoverplaceholder:hover {
+    cursor: pointer; /* 设置光标为手形，当悬停在hoverplaceholder时 */
+}
+
+.outer-circle {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0);
+    border-radius: 50%;
+    position: relative;
+}
+
+.inner-circle {
+    width: 15px;
+    height: 15px;
+    border: 3px solid white;
+    border-radius: 50%;
+    position: absolute;
+    top: 23px;
+    left: 23px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
