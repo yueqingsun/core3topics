@@ -52,12 +52,14 @@ body {
     text-align: center; 
     opacity: 0; /* Start with opacity 0 */
     color: rgb(255, 0, 0); /* Start with red color */
-    /* background-color: #000000; */
+    background-color: #000000;
     border: 3px solid red;
     font-size: large;
     padding: 15px;
     transition: opacity 1s, color 0.5s, border 0.5s;/* Define the transitions */
     transform: rotate(180deg);
+    pointer-events: none; 
+    z-index: 999;
 }
 
 .rectext.show {
@@ -110,6 +112,7 @@ span{
     border-width: 4px;      /* 加粗边框 */
     transform: scale(1.1);  /* 稍微放大 */
     transition: all 0.2s ease; /* 加速动画效果 */
+    z-index: 9999;
 }
 
 
