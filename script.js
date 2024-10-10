@@ -3,6 +3,7 @@ window.onload = function() {
         let rectangles = document.querySelectorAll('.rectangle');
         let hoverimages = document.querySelectorAll('.hover-img');
         let rectext = document.querySelectorAll('.rectext');
+        let bg = document.querySelectorAll('.bg');
         rectangles.forEach(function(rect) {
             rect.style.width = '60px';
             rect.style.height = '60px'; /* 缩小后保持4:3比例 */
@@ -61,6 +62,15 @@ window.onload = function() {
                 });
                 rect.addEventListener('mouseleave', () => {
                     rectext[index].classList.remove('show'); // Hide text when not hovering
+                });
+            });
+
+            rectangles.forEach((rect, index) => {
+                rect.addEventListener('mouseenter', () => {
+                    bg[index].classList.add('showbg'); // Show text on hover
+                });
+                rect.addEventListener('mouseleave', () => {
+                    bg[index].classList.remove('showbg'); // Hide text when not hovering
                 });
             });
 
